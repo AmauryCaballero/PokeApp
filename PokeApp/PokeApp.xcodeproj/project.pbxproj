@@ -16,6 +16,7 @@
 		63461EC32BD24FED00C002E5 /* PokeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63461EC22BD24FED00C002E5 /* PokeAppTests.swift */; };
 		63461ECD2BD24FED00C002E5 /* PokeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63461ECC2BD24FED00C002E5 /* PokeAppUITests.swift */; };
 		63461ECF2BD24FED00C002E5 /* PokeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63461ECE2BD24FED00C002E5 /* PokeAppUITestsLaunchTests.swift */; };
+		638D105F2BD2F9EC00E1A19B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 638D105E2BD2F9EC00E1A19B /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638D105F2BD2F9EC00E1A19B /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +239,9 @@
 			dependencies = (
 			);
 			name = PokeApp;
+			packageProductDependencies = (
+				638D105E2BD2F9EC00E1A19B /* Alamofire */,
+			);
 			productName = PokeApp;
 			productReference = 63461EA92BD24FEC00C002E5 /* PokeApp.app */;
 			productType = "com.apple.product-type.application";
@@ -309,6 +314,9 @@
 				Base,
 			);
 			mainGroup = 63461EA02BD24FEC00C002E5;
+			packageReferences = (
+				638D105D2BD2F9EC00E1A19B /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 63461EAA2BD24FEC00C002E5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -684,6 +692,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		638D105D2BD2F9EC00E1A19B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		638D105E2BD2F9EC00E1A19B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 638D105D2BD2F9EC00E1A19B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		63461EB72BD24FED00C002E5 /* PokeApp.xcdatamodeld */ = {
