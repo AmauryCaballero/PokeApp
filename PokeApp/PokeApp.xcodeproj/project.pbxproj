@@ -98,12 +98,19 @@
 		63461EAB2BD24FEC00C002E5 /* PokeApp */ = {
 			isa = PBXGroup;
 			children = (
-				63461EAC2BD24FEC00C002E5 /* PokeAppApp.swift */,
-				63461EAE2BD24FEC00C002E5 /* ContentView.swift */,
+				63461EE32BD257FB00C002E5 /* Animations */,
 				63461EB02BD24FED00C002E5 /* Assets.xcassets */,
+				63461EAE2BD24FEC00C002E5 /* ContentView.swift */,
+				63461EDB2BD257B700C002E5 /* Model */,
 				63461EB52BD24FED00C002E5 /* Persistence.swift */,
 				63461EB72BD24FED00C002E5 /* PokeApp.xcdatamodeld */,
+				63461EAC2BD24FEC00C002E5 /* PokeAppApp.swift */,
 				63461EB22BD24FED00C002E5 /* Preview Content */,
+				63461EE12BD257EA00C002E5 /* Repository */,
+				63461EE02BD257E000C002E5 /* Services */,
+				63461EE22BD257F000C002E5 /* Utilities */,
+				63461EDD2BD257CB00C002E5 /* View */,
+				63461EDC2BD257BD00C002E5 /* ViewModel */,
 			);
 			path = PokeApp;
 			sourceTree = "<group>";
@@ -119,6 +126,8 @@
 		63461EC12BD24FED00C002E5 /* PokeAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				63461EE52BD2582400C002E5 /* ViewModelTests */,
+				63461EE42BD2581C00C002E5 /* ModelTests */,
 				63461EC22BD24FED00C002E5 /* PokeAppTests.swift */,
 			);
 			path = PokeAppTests;
@@ -131,6 +140,85 @@
 				63461ECE2BD24FED00C002E5 /* PokeAppUITestsLaunchTests.swift */,
 			);
 			path = PokeAppUITests;
+			sourceTree = "<group>";
+		};
+		63461EDB2BD257B700C002E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		63461EDC2BD257BD00C002E5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		63461EDD2BD257CB00C002E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				63461EDF2BD257D900C002E5 /* Screens */,
+				63461EDE2BD257D100C002E5 /* Components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		63461EDE2BD257D100C002E5 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		63461EDF2BD257D900C002E5 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		63461EE02BD257E000C002E5 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		63461EE12BD257EA00C002E5 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		63461EE22BD257F000C002E5 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		63461EE32BD257FB00C002E5 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		63461EE42BD2581C00C002E5 /* ModelTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelTests;
+			sourceTree = "<group>";
+		};
+		63461EE52BD2582400C002E5 /* ViewModelTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModelTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
