@@ -17,6 +17,8 @@
 		63461ECD2BD24FED00C002E5 /* PokeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63461ECC2BD24FED00C002E5 /* PokeAppUITests.swift */; };
 		63461ECF2BD24FED00C002E5 /* PokeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63461ECE2BD24FED00C002E5 /* PokeAppUITestsLaunchTests.swift */; };
 		638D105F2BD2F9EC00E1A19B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 638D105E2BD2F9EC00E1A19B /* Alamofire */; };
+		638D10612BD2FDCB00E1A19B /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D10602BD2FDCB00E1A19B /* APIEndpoint.swift */; };
+		638D10632BD3024800E1A19B /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D10622BD3024800E1A19B /* APIConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		63461EC82BD24FED00C002E5 /* PokeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63461ECC2BD24FED00C002E5 /* PokeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAppUITests.swift; sourceTree = "<group>"; };
 		63461ECE2BD24FED00C002E5 /* PokeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		638D10602BD2FDCB00E1A19B /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		638D10622BD3024800E1A19B /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,8 @@
 		63461EDB2BD257B700C002E5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				638D10602BD2FDCB00E1A19B /* APIEndpoint.swift */,
+				638D10622BD3024800E1A19B /* APIConfig.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,8 +367,10 @@
 			files = (
 				63461EB92BD24FED00C002E5 /* PokeApp.xcdatamodeld in Sources */,
 				63461EB62BD24FED00C002E5 /* Persistence.swift in Sources */,
+				638D10632BD3024800E1A19B /* APIConfig.swift in Sources */,
 				63461EAF2BD24FEC00C002E5 /* ContentView.swift in Sources */,
 				63461EAD2BD24FEC00C002E5 /* PokeAppApp.swift in Sources */,
+				638D10612BD2FDCB00E1A19B /* APIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
