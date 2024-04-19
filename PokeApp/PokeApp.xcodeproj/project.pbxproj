@@ -23,6 +23,7 @@
 		638D10672BD3037D00E1A19B /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D10662BD3037D00E1A19B /* Pokemon.swift */; };
 		638D10692BD3039400E1A19B /* PokemonListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D10682BD3039400E1A19B /* PokemonListResponse.swift */; };
 		638D106B2BD303A000E1A19B /* PokemonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D106A2BD303A000E1A19B /* PokemonDetail.swift */; };
+		638D106E2BD3046800E1A19B /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D106D2BD3046800E1A19B /* NetworkServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		638D10662BD3037D00E1A19B /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		638D10682BD3039400E1A19B /* PokemonListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListResponse.swift; sourceTree = "<group>"; };
 		638D106A2BD303A000E1A19B /* PokemonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetail.swift; sourceTree = "<group>"; };
+		638D106D2BD3046800E1A19B /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 		63461EE02BD257E000C002E5 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				638D106C2BD3044700E1A19B /* Protocols */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -239,6 +242,14 @@
 			children = (
 			);
 			path = ViewModelTests;
+			sourceTree = "<group>";
+		};
+		638D106C2BD3044700E1A19B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				638D106D2BD3046800E1A19B /* NetworkServiceProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -386,6 +397,7 @@
 				638D10652BD3036C00E1A19B /* NamedAPIResource.swift in Sources */,
 				638D10692BD3039400E1A19B /* PokemonListResponse.swift in Sources */,
 				63461EAD2BD24FEC00C002E5 /* PokeAppApp.swift in Sources */,
+				638D106E2BD3046800E1A19B /* NetworkServiceProtocol.swift in Sources */,
 				638D10612BD2FDCB00E1A19B /* APIEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
