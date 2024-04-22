@@ -10,9 +10,7 @@ import Combine
 protocol NetworkServiceProtocol {
     func fetchPokemonList(limit: Int, offset: Int) -> AnyPublisher<PokemonListResponse, Error>
     
-    func fetchPokemonDetails(by name: String) -> AnyPublisher<PokemonDetail, Error>
+    func fetchPokemonDetails(id: Int) -> AnyPublisher<PokemonDetail, Error>
     
     func searchPokemonByName(name: String) -> AnyPublisher<PokemonListResponse, Error>
-    
-    func advancedSearchPokemon(parameters: [String: Any]) -> AnyPublisher<PokemonListResponse, Error>
 }
