@@ -122,17 +122,14 @@
 			children = (
 				63461EE32BD257FB00C002E5 /* Animations */,
 				63461EB02BD24FED00C002E5 /* Assets.xcassets */,
+				638957E82BD62E0F00A1D7F6 /* Business Logic */,
 				63461EAE2BD24FEC00C002E5 /* ContentView.swift */,
-				63461EDB2BD257B700C002E5 /* Model */,
+				638957E72BD62DD900A1D7F6 /* Navigation */,
 				63461EB52BD24FED00C002E5 /* Persistence.swift */,
 				63461EB72BD24FED00C002E5 /* PokeApp.xcdatamodeld */,
 				63461EAC2BD24FEC00C002E5 /* PokeAppApp.swift */,
 				63461EB22BD24FED00C002E5 /* Preview Content */,
-				63461EE12BD257EA00C002E5 /* Repository */,
-				63461EE02BD257E000C002E5 /* Services */,
-				63461EE22BD257F000C002E5 /* Utilities */,
-				63461EDD2BD257CB00C002E5 /* View */,
-				63461EDC2BD257BD00C002E5 /* ViewModel */,
+				638957E92BD62E3900A1D7F6 /* User Interface */,
 			);
 			path = PokeApp;
 			sourceTree = "<group>";
@@ -184,15 +181,6 @@
 			children = (
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		63461EDD2BD257CB00C002E5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				63461EDF2BD257D900C002E5 /* Screens */,
-				63461EDE2BD257D100C002E5 /* Components */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		63461EDE2BD257D100C002E5 /* Components */ = {
@@ -259,6 +247,34 @@
 				638957E32BD59C5600A1D7F6 /* NetworkServiceTests.swift */,
 			);
 			path = ServicesTests;
+			sourceTree = "<group>";
+		};
+		638957E72BD62DD900A1D7F6 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		638957E82BD62E0F00A1D7F6 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				63461EDC2BD257BD00C002E5 /* ViewModel */,
+				63461EE12BD257EA00C002E5 /* Repository */,
+				63461EE22BD257F000C002E5 /* Utilities */,
+				63461EDB2BD257B700C002E5 /* Model */,
+				63461EE02BD257E000C002E5 /* Services */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		638957E92BD62E3900A1D7F6 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				63461EDE2BD257D100C002E5 /* Components */,
+				63461EDF2BD257D900C002E5 /* Screens */,
+			);
+			path = "User Interface";
 			sourceTree = "<group>";
 		};
 		638D106C2BD3044700E1A19B /* Protocols */ = {
