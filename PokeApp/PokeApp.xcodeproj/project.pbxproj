@@ -34,6 +34,7 @@
 		638958332BD64CEF00A1D7F6 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 638958212BD64CEF00A1D7F6 /* Montserrat-Medium.ttf */; };
 		638958342BD64CEF00A1D7F6 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 638958222BD64CEF00A1D7F6 /* Montserrat-Regular.ttf */; };
 		638958352BD64CEF00A1D7F6 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 638958232BD64CEF00A1D7F6 /* Montserrat-ExtraLight.ttf */; };
+		6389583A2BD64E1E00A1D7F6 /* FontTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638958392BD64E1E00A1D7F6 /* FontTheme.swift */; };
 		638D105F2BD2F9EC00E1A19B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 638D105E2BD2F9EC00E1A19B /* Alamofire */; };
 		638D10612BD2FDCB00E1A19B /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D10602BD2FDCB00E1A19B /* APIEndpoint.swift */; };
 		638D10632BD3024800E1A19B /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D10622BD3024800E1A19B /* APIConfig.swift */; };
@@ -94,6 +95,7 @@
 		638958222BD64CEF00A1D7F6 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		638958232BD64CEF00A1D7F6 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		638958382BD64D4000A1D7F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		638958392BD64E1E00A1D7F6 /* FontTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontTheme.swift; sourceTree = "<group>"; };
 		638D10602BD2FDCB00E1A19B /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		638D10622BD3024800E1A19B /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		638D10642BD3036C00E1A19B /* NamedAPIResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedAPIResource.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				638958012BD64C7800A1D7F6 /* Fonts */,
 				638957F62BD6364B00A1D7F6 /* ColorTheme.swift */,
 				638957FA2BD6391700A1D7F6 /* ThemeManager.swift */,
+				638958392BD64E1E00A1D7F6 /* FontTheme.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				638957F72BD6364B00A1D7F6 /* ColorTheme.swift in Sources */,
+				6389583A2BD64E1E00A1D7F6 /* FontTheme.swift in Sources */,
 				63461EB92BD24FED00C002E5 /* PokeApp.xcdatamodeld in Sources */,
 				638D10672BD3037D00E1A19B /* Pokemon.swift in Sources */,
 				638D106B2BD303A000E1A19B /* PokemonDetail.swift in Sources */,
