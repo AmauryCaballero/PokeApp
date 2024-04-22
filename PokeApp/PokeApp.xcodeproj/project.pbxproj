@@ -21,6 +21,11 @@
 		638957EB2BD62F2300A1D7F6 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638957EA2BD62F2300A1D7F6 /* NavigationCoordinator.swift */; };
 		638957ED2BD62F4200A1D7F6 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638957EC2BD62F4200A1D7F6 /* Page.swift */; };
 		638957F12BD6301D00A1D7F6 /* HomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638957F02BD6301D00A1D7F6 /* HomeScreenView.swift */; };
+		638957F42BD634A000A1D7F6 /* PokeBallShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638957F32BD634A000A1D7F6 /* PokeBallShape.swift */; };
+		638957F72BD6364B00A1D7F6 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638957F62BD6364B00A1D7F6 /* ColorTheme.swift */; };
+		638957F92BD6376900A1D7F6 /* Color+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638957F82BD6376900A1D7F6 /* Color+Helper.swift */; };
+		638957FB2BD6391700A1D7F6 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638957FA2BD6391700A1D7F6 /* ThemeManager.swift */; };
+		638958002BD64B1000A1D7F6 /* HomeScreenView+Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638957FF2BD64B1000A1D7F6 /* HomeScreenView+Components.swift */; };
 		638D105F2BD2F9EC00E1A19B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 638D105E2BD2F9EC00E1A19B /* Alamofire */; };
 		638D10612BD2FDCB00E1A19B /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D10602BD2FDCB00E1A19B /* APIEndpoint.swift */; };
 		638D10632BD3024800E1A19B /* APIConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D10622BD3024800E1A19B /* APIConfig.swift */; };
@@ -67,6 +72,11 @@
 		638957EA2BD62F2300A1D7F6 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
 		638957EC2BD62F4200A1D7F6 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		638957F02BD6301D00A1D7F6 /* HomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenView.swift; sourceTree = "<group>"; };
+		638957F32BD634A000A1D7F6 /* PokeBallShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeBallShape.swift; sourceTree = "<group>"; };
+		638957F62BD6364B00A1D7F6 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		638957F82BD6376900A1D7F6 /* Color+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Helper.swift"; sourceTree = "<group>"; };
+		638957FA2BD6391700A1D7F6 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		638957FF2BD64B1000A1D7F6 /* HomeScreenView+Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeScreenView+Components.swift"; sourceTree = "<group>"; };
 		638D10602BD2FDCB00E1A19B /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		638D10622BD3024800E1A19B /* APIConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfig.swift; sourceTree = "<group>"; };
 		638D10642BD3036C00E1A19B /* NamedAPIResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedAPIResource.swift; sourceTree = "<group>"; };
@@ -128,6 +138,7 @@
 			children = (
 				63461EE32BD257FB00C002E5 /* Animations */,
 				63461EB02BD24FED00C002E5 /* Assets.xcassets */,
+				63461EE22BD257F000C002E5 /* Utilities */,
 				638957E82BD62E0F00A1D7F6 /* Business Logic */,
 				63461EAE2BD24FEC00C002E5 /* ContentView.swift */,
 				638957E72BD62DD900A1D7F6 /* Navigation */,
@@ -192,6 +203,7 @@
 		63461EDE2BD257D100C002E5 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				638957F22BD6348F00A1D7F6 /* SVG Shapes */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -199,7 +211,7 @@
 		63461EDF2BD257D900C002E5 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				638957F02BD6301D00A1D7F6 /* HomeScreenView.swift */,
+				638957FE2BD64AFA00A1D7F6 /* Home */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -223,6 +235,7 @@
 		63461EE22BD257F000C002E5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				638957F82BD6376900A1D7F6 /* Color+Helper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -270,7 +283,6 @@
 			children = (
 				63461EDC2BD257BD00C002E5 /* ViewModel */,
 				63461EE12BD257EA00C002E5 /* Repository */,
-				63461EE22BD257F000C002E5 /* Utilities */,
 				63461EDB2BD257B700C002E5 /* Model */,
 				63461EE02BD257E000C002E5 /* Services */,
 			);
@@ -280,10 +292,37 @@
 		638957E92BD62E3900A1D7F6 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				638957F52BD6363F00A1D7F6 /* Theme */,
 				63461EDE2BD257D100C002E5 /* Components */,
 				63461EDF2BD257D900C002E5 /* Screens */,
 			);
 			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		638957F22BD6348F00A1D7F6 /* SVG Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				638957F32BD634A000A1D7F6 /* PokeBallShape.swift */,
+			);
+			path = "SVG Shapes";
+			sourceTree = "<group>";
+		};
+		638957F52BD6363F00A1D7F6 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				638957F62BD6364B00A1D7F6 /* ColorTheme.swift */,
+				638957FA2BD6391700A1D7F6 /* ThemeManager.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		638957FE2BD64AFA00A1D7F6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				638957F02BD6301D00A1D7F6 /* HomeScreenView.swift */,
+				638957FF2BD64B1000A1D7F6 /* HomeScreenView+Components.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		638D106C2BD3044700E1A19B /* Protocols */ = {
@@ -430,6 +469,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				638957F72BD6364B00A1D7F6 /* ColorTheme.swift in Sources */,
 				63461EB92BD24FED00C002E5 /* PokeApp.xcdatamodeld in Sources */,
 				638D10672BD3037D00E1A19B /* Pokemon.swift in Sources */,
 				638D106B2BD303A000E1A19B /* PokemonDetail.swift in Sources */,
@@ -439,12 +479,16 @@
 				638D10632BD3024800E1A19B /* APIConfig.swift in Sources */,
 				63461EAF2BD24FEC00C002E5 /* ContentView.swift in Sources */,
 				638D10652BD3036C00E1A19B /* NamedAPIResource.swift in Sources */,
+				638957F42BD634A000A1D7F6 /* PokeBallShape.swift in Sources */,
+				638958002BD64B1000A1D7F6 /* HomeScreenView+Components.swift in Sources */,
 				638D10692BD3039400E1A19B /* PokemonListResponse.swift in Sources */,
 				63461EAD2BD24FEC00C002E5 /* PokeAppApp.swift in Sources */,
 				638D106E2BD3046800E1A19B /* NetworkServiceProtocol.swift in Sources */,
 				638957F12BD6301D00A1D7F6 /* HomeScreenView.swift in Sources */,
+				638957FB2BD6391700A1D7F6 /* ThemeManager.swift in Sources */,
 				638D10702BD3093900E1A19B /* NetworkService.swift in Sources */,
 				638D10612BD2FDCB00E1A19B /* APIEndpoint.swift in Sources */,
+				638957F92BD6376900A1D7F6 /* Color+Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
