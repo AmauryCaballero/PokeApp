@@ -11,8 +11,6 @@ import CoreData
 struct ContentView: View {
     @StateObject var navigationCoordinator = NavigationCoordinator()
     @EnvironmentObject var themeManager: ThemeManager
-    
-    @Environment(\.managedObjectContext) private var viewContext
 
     var body: some View {
         NavigationView {
@@ -29,5 +27,7 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    ContentView()
+        .environmentObject(ThemeManager())
+        .environment(\.colorScheme, .dark)
 }

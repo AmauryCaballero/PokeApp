@@ -12,17 +12,17 @@ struct ColorTheme {
     
     static let light = ColorTheme(
         primary: .red,
-        secondary: Color(hex: "#ADDAEE"),
-        background: Color(hex: "#232323"), 
+        secondary: Color(hex: "#41AAF7"),
+        background: Color(hex: "#232323"),
         text: .black,
-        accent: Color(hex: "#B2FFE2")
+        accent: Color(hex: "#D9AE5A")
     )
     
     static let dark = ColorTheme(
         primary: .red,
-        secondary: Color(hex: "#ADDAEE"),
+        secondary: Color(hex: "#41AAF7"),
         background: Color(hex: "#464646"),
         text: .white,
-        accent: Color(hex: "#B2FFE2")
+        accent: Color(hex: "#D9AE5A")
     )
 }

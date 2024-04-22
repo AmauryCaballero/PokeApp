@@ -9,13 +9,11 @@ import SwiftUI
 
 @main
 struct PokeAppApp: App {
-    var themeManager = ThemeManager()
-    let persistenceController = PersistenceController.shared
+    @StateObject var themeManager = ThemeManager()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .environmentObject(themeManager)
         }
     }
