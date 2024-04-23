@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeScreenView: View {
+    @ObservedObject var viewModel: HomeScreenViewModel
     @EnvironmentObject var themeManager: ThemeManager
     
     var body: some View {
@@ -19,7 +20,8 @@ struct HomeScreenView: View {
                 
                 searchBar
                 
-                Spacer()
+                infiniteScroll
+
             }
             .padding(50)
         }
@@ -30,11 +32,11 @@ struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             
-            HomeScreenView()
+            HomeScreenView(viewModel: HomeScreenViewModel.preview())
                 .previewDisplayName("Light Mode")
             
             
-            HomeScreenView()
+            HomeScreenView(viewModel: HomeScreenViewModel.preview())
                 .environment(\.colorScheme, .dark)
                 .previewDisplayName("Dark Mode")
         }

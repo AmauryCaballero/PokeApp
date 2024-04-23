@@ -13,7 +13,7 @@ open class BaseViewModel: ObservableObject {
     
     let networkService: NetworkServiceProtocol
     
-    private var cancellables = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
     
     init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService

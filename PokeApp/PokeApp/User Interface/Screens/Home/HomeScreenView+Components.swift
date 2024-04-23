@@ -10,6 +10,27 @@ import SwiftUI
 extension HomeScreenView {
     
     @ViewBuilder
+    var infiniteScroll: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(viewModel.pokemons, id: \.self) { pokemon in
+                    Text(pokemon.name)
+                        .pokeFont(.button)
+                        .onAppear {
+                            viewModel.loadMoreContentIfNeeded(currentItem: pokemon)
+                        }
+                }
+                if viewModel.isLoading {
+                    ProgressView()
+                }
+            }
+        }
+        .onAppear {
+            viewModel.loadMoreContentIfNeeded(currentItem: nil)
+        }
+    }
+    
+    @ViewBuilder
     var searchBar: some View {
         TextField("Search a Pokémon", text: .constant(""))
             .padding(7)

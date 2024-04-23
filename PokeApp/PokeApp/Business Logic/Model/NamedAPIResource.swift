@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct NamedAPIResource: Codable {
+struct NamedAPIResource: Codable, Hashable {
     let name: String
     let url: URL
 }

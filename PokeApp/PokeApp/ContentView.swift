@@ -17,7 +17,7 @@ struct ContentView: View {
         NavigationView {
             switch navigationCoordinator.currentPage {
             case .home:
-                HomeScreenView()
+                HomeScreenView(viewModel: DependencyContainer.shared.resolve(HomeScreenViewModel.self)!)
             case .none:
                 EmptyView()
             }
