@@ -48,6 +48,7 @@
 		63E514242BD7469600B830C9 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E514232BD7469600B830C9 /* BaseViewModel.swift */; };
 		63E514262BD746B200B830C9 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E514252BD746B200B830C9 /* HomeScreenViewModel.swift */; };
 		63E514292BD76DB800B830C9 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 63E514282BD76DB800B830C9 /* Swinject */; };
+		63E5142B2BD76E4A00B830C9 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E5142A2BD76E4A00B830C9 /* DependencyContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		638D106F2BD3093900E1A19B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		63E514232BD7469600B830C9 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		63E514252BD746B200B830C9 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
+		63E5142A2BD76E4A00B830C9 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 				63461EE12BD257EA00C002E5 /* Repository */,
 				63461EDB2BD257B700C002E5 /* Model */,
 				63461EE02BD257E000C002E5 /* Services */,
+				63E5142A2BD76E4A00B830C9 /* DependencyContainer.swift */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				63461EB62BD24FED00C002E5 /* Persistence.swift in Sources */,
 				638D10632BD3024800E1A19B /* APIConfig.swift in Sources */,
 				63461EAF2BD24FEC00C002E5 /* ContentView.swift in Sources */,
+				63E5142B2BD76E4A00B830C9 /* DependencyContainer.swift in Sources */,
 				638D10652BD3036C00E1A19B /* NamedAPIResource.swift in Sources */,
 				638957F42BD634A000A1D7F6 /* PokeBallShape.swift in Sources */,
 				638958002BD64B1000A1D7F6 /* HomeScreenView+Components.swift in Sources */,
