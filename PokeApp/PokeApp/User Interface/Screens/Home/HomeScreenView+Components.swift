@@ -10,6 +10,37 @@ import SwiftUI
 extension HomeScreenView {
     
     @ViewBuilder
+    var searchBar: some View {
+        TextField("Search a Pokémon", text: .constant(""))
+            .padding(7)
+            .padding(.horizontal, 30)
+            .background(RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.black, lineWidth: 2)
+                .fill(themeManager.currentTheme.background)
+            ) .overlay(
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
+                        .padding(.leading, 8)
+                    Spacer()
+                }
+            )
+    }
+    
+    @ViewBuilder
+    var header: some View {
+        VStack(alignment: .leading) {
+            Text("Search Your")
+                .pokeFont(.title2)
+            
+            
+            Text("Pokémon")
+                .pokeFont(.title)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+    
+    @ViewBuilder
     var background: some View {
         ZStack {
             ZStack {
@@ -38,7 +69,7 @@ extension HomeScreenView {
             .blur(radius: 100)
             
             PokeBallShape()
-                .fill(.ultraThinMaterial)
+                .fill(.thinMaterial)
                 .offset(x: 30)
                 .aspectRatio(0.6, contentMode: .fill)
         }

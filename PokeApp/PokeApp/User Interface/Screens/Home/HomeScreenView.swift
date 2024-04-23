@@ -13,9 +13,17 @@ struct HomeScreenView: View {
     var body: some View {
         ZStack {
             background
+            
+            VStack {
+                header
+                
+                searchBar
+                
+                Spacer()
+            }
+            .padding(50)
         }
     }
-
 }
 
 struct HomeScreenView_Previews: PreviewProvider {
