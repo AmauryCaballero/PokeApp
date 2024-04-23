@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     @StateObject var navigationCoordinator = NavigationCoordinator()
     @EnvironmentObject var themeManager: ThemeManager
 
@@ -20,11 +21,16 @@ struct ContentView: View {
             case .none:
                 EmptyView()
             }
-        }
+        }.onChange(of: colorScheme, {
+            switch colorScheme {
+            case .dark:
+                themeManager.updateTheme(to: .dark)
+            default:
+                themeManager.updateTheme(to: .light)
+            }
+        })
     }
-
 }
-
 
 #Preview {
     ContentView()

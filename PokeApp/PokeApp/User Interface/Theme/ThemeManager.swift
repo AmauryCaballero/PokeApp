@@ -7,21 +7,10 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class ThemeManager: ObservableObject {
     @Published var currentTheme: ColorTheme = .light
-    @Environment(\.colorScheme) var colorScheme: ColorScheme {
-        didSet {
-            switch colorScheme {
-            case .light:
-                currentTheme = .light
-            case .dark:
-                currentTheme = .dark
-            @unknown default:
-                currentTheme = .dark
-            }
-        }
-    }
     
     init() {
         if UITraitCollection.current.userInterfaceStyle == .dark {
@@ -29,5 +18,9 @@ class ThemeManager: ObservableObject {
         } else {
             currentTheme = .light
         }
+    }
+    
+    func updateTheme(to theme: ColorTheme) {
+        currentTheme = theme
     }
 }
