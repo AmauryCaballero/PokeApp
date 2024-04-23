@@ -14,6 +14,11 @@ final class DependencyContainer {
     let container: Container = {
         let container = Container()
         
+        container.register(NetworkServiceProtocol.self) { _ in NetworkService()}
+        
+        container.register(HomeScreenViewModel.self) { r in
+            HomeScreenViewModel(networkService: r.resolve(NetworkServiceProtocol.self)!)
+        }
         
         return container
     }()
