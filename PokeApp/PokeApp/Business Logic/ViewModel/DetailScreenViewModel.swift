@@ -6,14 +6,21 @@
 //
 
 import Foundation
+import SwiftUI
 
 class DetailScreenViewModel: BaseViewModel {
-    
-    @Published var text: String = ""
+    @Published var pokemonDetails: PokemonDetail?
+    @Published var pokemonColor: Color?
     
     override init(networkService: any NetworkServiceProtocol, navigationParameters: NavigationParameters? = nil) {
         super.init(networkService: networkService, navigationParameters: navigationParameters)
         
-        text = navigationParameters.debugDescription
+        if let pokemon: PokemonDetail = navigationParameters?.getValue(NavigationParametersKeys.pokemonDetail.rawValue)  {
+            self.pokemonDetails = pokemon
+        }
+        
+        if let color: Color = navigationParameters?.getValue(NavigationParametersKeys.pokemonColor.rawValue) {
+            self.pokemonColor = color
+        }
     }
 }

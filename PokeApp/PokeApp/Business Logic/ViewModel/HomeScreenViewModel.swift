@@ -28,9 +28,11 @@ class HomeScreenViewModel: BaseViewModel {
     }
     
     func selectPokemon(_ pokemon: NamedAPIResource) {
-        if let pokeDetail = pokemonDetails[pokemon.name] {
+        if let pokeDetail = pokemonDetails[pokemon.name],
+            let pokeColor = pokemonColors[pokemon.name] {
             parameters = NavigationParameters([
-                NavigationParametersKeys.pokemonDetail.rawValue: pokeDetail
+                NavigationParametersKeys.pokemonDetail.rawValue: pokeDetail,
+                NavigationParametersKeys.pokemonColor.rawValue: pokeColor
             ])
         }
     }

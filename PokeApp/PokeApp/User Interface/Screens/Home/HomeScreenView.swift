@@ -26,7 +26,7 @@ struct HomeScreenView: View {
                 }
             }
             .padding(.horizontal, 50)
-        }.sheet(item: $viewModel.parameters) { navigationParameters in
+        }.fullScreenCover(item: $viewModel.parameters) { navigationParameters in
             let viewModel = DependencyContainer.shared.resolveViewModel(DetailScreenViewModel.self, parameters: navigationParameters)!
             DetailScreenView(viewModel: viewModel)
         }
