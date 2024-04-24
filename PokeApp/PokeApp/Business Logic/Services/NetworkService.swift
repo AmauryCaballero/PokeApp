@@ -40,7 +40,7 @@ class NetworkService: NetworkServiceProtocol {
         return request(url)
     }
 
-    func searchPokemonByName(name: String) -> AnyPublisher<PokemonDetail, Error> {
+    func searchPokemonByName(name: String) -> AnyPublisher<PokemonListResponse, Error> {
         let endpoint = APIEndpoint.pokemonByName(name)
         let url = endpoint.url
         return request(url)

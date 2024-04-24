@@ -40,5 +40,5 @@ protocol NetworkServiceProtocol {
     /// - Parameter name: The name of the Pokemon to search for.
     /// - Returns: An `AnyPublisher` that outputs `PokemonListResponse` and errors out with `Error`.
     /// This method searches the Pokemon API for a Pokemon by its name and returns the result in a list format, which might include similar named Pokemon.
-    func searchPokemonByName(name: String) -> AnyPublisher<PokemonDetail, Error>
+    func searchPokemonByName(name: String) -> AnyPublisher<PokemonListResponse, Error>
 }

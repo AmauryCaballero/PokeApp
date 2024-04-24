@@ -55,7 +55,7 @@ struct DetailScreenView: View {
                                 aboutTab(pokemonInfo)
                                     .tag(tabs[0])
                                 
-                                tab(tabs[1])
+                                statTab(pokemonInfo, color: viewModel.pokemonColor ?? themeManager.currentTheme.accent)
                                     .tag(tabs[1])
                                 
                                 tab(tabs[2])
@@ -83,6 +83,8 @@ struct DetailScreenView: View {
                     Button(action: {presentationMode.wrappedValue.dismiss()})
                 {
                     Image(systemName: "chevron.down")
+                        .foregroundColor(viewModel.pokemonColor ?? themeManager.currentTheme.accent)
+                        
                 }
             )
         }

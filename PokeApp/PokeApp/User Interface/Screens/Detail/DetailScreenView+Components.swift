@@ -75,6 +75,38 @@ extension DetailScreenView {
     }
     
     @ViewBuilder
+    func statTab(_ pokemonInfo: PokemonDetail, color: Color) -> some View {
+        VStack {
+            if let stats = pokemonInfo.stats {
+                ForEach(stats, id: \.stat?.name) { stat in
+                    HStack {
+                        Text(stat.stat?.name.capitalized ?? "")
+                            .pokeFont(.footNote)
+                            .frame(width: 80, alignment: .leading)
+                        
+                        Text("\(stat.baseStat ?? 0)")
+                            .pokeFont(.button)
+                        
+                        ViewThatFits {
+                            StatBarView(
+                                baseStat: stat.baseStat ?? 0,
+                                effort: stat.effort ?? 0, color: viewModel.pokemonColor ?? themeManager.currentTheme.accent
+                            )
+                            
+                            
+                            StatBarView(
+                                baseStat: stat.baseStat ?? 0,
+                                effort: stat.effort ?? 0, color: viewModel.pokemonColor ?? themeManager.currentTheme.accent,
+                                totalSegments: 10
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
     func tab(_ text: String) -> some View {
         Text(text)
             .pokeFont(.title2)
