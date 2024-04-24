@@ -62,15 +62,32 @@ struct PokemonMoveVersion: Codable {
 struct PokemonSprites: Codable {
     let frontDefault: URL?
     let frontShiny: URL?
+    let backDefault: URL?
+    let backShiny: URL?
+    
+    enum CodingKeys: String, CodingKey {
+        case frontDefault = "front_default"
+        case frontShiny = "front_shiny"
+        case backDefault = "back_default"
+        case backShiny = "back_shiny"
+    }
 }
 
 struct PokemonStat: Codable {
     let stat: NamedAPIResource?
     let effort: Int?
     let baseStat: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case stat = "stat"
+        case effort = "effort"
+        case baseStat = "base_stat"
+    }
 }
 
-struct PokemonType: Codable {
+struct PokemonType: Codable, Identifiable{
+    var id: Int { slot }
+
     let slot: Int
     let type: NamedAPIResource
 }

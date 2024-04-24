@@ -8,8 +8,8 @@
 import Foundation
 
 struct PokemonListResponse: Codable {
-    let count: Int
-    let next: URL?
-    let previous: URL?
-    let results: [NamedAPIResource]
+    var count: Int
+    var next: URL?
+    var previous: URL?
+    var results: [NamedAPIResource]
 }
