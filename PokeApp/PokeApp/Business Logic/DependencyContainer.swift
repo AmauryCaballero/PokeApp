@@ -16,15 +16,19 @@ final class DependencyContainer {
         
         container.register(NetworkServiceProtocol.self) { _ in NetworkService()}
         
-        container.register(HomeScreenViewModel.self) { (resolver, parameters: [String: Any]?) in
+        container.register(HomeScreenViewModel.self) { (resolver, _ : NavigationParameters?) in
+            HomeScreenViewModel(networkService: resolver.resolve(NetworkServiceProtocol.self)!)
+        }
+        
+        container.register(DetailScreenViewModel.self) { (resolver, parameters: NavigationParameters?) in
             let networkService = resolver.resolve(NetworkServiceProtocol.self)!
-            return HomeScreenViewModel(networkService: networkService, navigationParameters: parameters)
+            return DetailScreenViewModel(networkService: networkService, navigationParameters: parameters)
         }
         
         return container
     }()
     
-    func resolveViewModel<BaseViewModel>(_ baseViewModel: BaseViewModel.Type, parameters: [String: Any]? = nil) -> BaseViewModel? {
+    func resolveViewModel<BaseViewModel>(_ baseViewModel: BaseViewModel.Type, parameters: NavigationParameters? = nil) -> BaseViewModel? {
         return container.resolve(baseViewModel, argument: parameters)
     }
     
