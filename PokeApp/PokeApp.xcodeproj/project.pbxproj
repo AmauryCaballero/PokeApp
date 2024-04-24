@@ -49,6 +49,8 @@
 		63E514262BD746B200B830C9 /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E514252BD746B200B830C9 /* HomeScreenViewModel.swift */; };
 		63E514292BD76DB800B830C9 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 63E514282BD76DB800B830C9 /* Swinject */; };
 		63E5142B2BD76E4A00B830C9 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E5142A2BD76E4A00B830C9 /* DependencyContainer.swift */; };
+		63E514302BD7F5CD00B830C9 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 63E5142F2BD7F5CD00B830C9 /* SDWebImageSwiftUI */; };
+		63E514322BD8429600B830C9 /* PokemonColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E514312BD8429600B830C9 /* PokemonColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,7 @@
 		63E514232BD7469600B830C9 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		63E514252BD746B200B830C9 /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		63E5142A2BD76E4A00B830C9 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		63E514312BD8429600B830C9 /* PokemonColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63E514302BD7F5CD00B830C9 /* SDWebImageSwiftUI in Frameworks */,
 				638D105F2BD2F9EC00E1A19B /* Alamofire in Frameworks */,
 				63E514292BD76DB800B830C9 /* Swinject in Frameworks */,
 			);
@@ -219,6 +223,7 @@
 				638D10662BD3037D00E1A19B /* Pokemon.swift */,
 				638D10682BD3039400E1A19B /* PokemonListResponse.swift */,
 				638D106A2BD303A000E1A19B /* PokemonDetail.swift */,
+				63E514312BD8429600B830C9 /* PokemonColor.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 			packageProductDependencies = (
 				638D105E2BD2F9EC00E1A19B /* Alamofire */,
 				63E514282BD76DB800B830C9 /* Swinject */,
+				63E5142F2BD7F5CD00B830C9 /* SDWebImageSwiftUI */,
 			);
 			productName = PokeApp;
 			productReference = 63461EA92BD24FEC00C002E5 /* PokeApp.app */;
@@ -479,6 +485,7 @@
 			packageReferences = (
 				638D105D2BD2F9EC00E1A19B /* XCRemoteSwiftPackageReference "Alamofire" */,
 				63E514272BD76DB800B830C9 /* XCRemoteSwiftPackageReference "Swinject" */,
+				63E5142E2BD7F5CD00B830C9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = 63461EAA2BD24FEC00C002E5 /* Products */;
 			projectDirPath = "";
@@ -548,6 +555,7 @@
 				638D10692BD3039400E1A19B /* PokemonListResponse.swift in Sources */,
 				63E514242BD7469600B830C9 /* BaseViewModel.swift in Sources */,
 				63461EAD2BD24FEC00C002E5 /* PokeAppApp.swift in Sources */,
+				63E514322BD8429600B830C9 /* PokemonColor.swift in Sources */,
 				6389583C2BD6586900A1D7F6 /* View+Modifiers.swift in Sources */,
 				638D106E2BD3046800E1A19B /* NetworkServiceProtocol.swift in Sources */,
 				638957F12BD6301D00A1D7F6 /* HomeScreenView.swift in Sources */,
@@ -906,6 +914,14 @@
 				minimumVersion = 2.8.7;
 			};
 		};
+		63E5142E2BD7F5CD00B830C9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -918,6 +934,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63E514272BD76DB800B830C9 /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = Swinject;
+		};
+		63E5142F2BD7F5CD00B830C9 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63E5142E2BD7F5CD00B830C9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 

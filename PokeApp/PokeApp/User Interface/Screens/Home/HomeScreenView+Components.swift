@@ -6,28 +6,21 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 extension HomeScreenView {
     
     @ViewBuilder
-    var infiniteScroll: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(viewModel.pokemons, id: \.self) { pokemon in
-                    Text(pokemon.name)
-                        .pokeFont(.button)
-                        .onAppear {
-                            viewModel.loadMoreContentIfNeeded(currentItem: pokemon)
-                        }
-                }
-                if viewModel.isLoading {
-                    ProgressView()
-                }
-            }
+    var header: some View {
+        VStack(alignment: .leading) {
+            Text("Search Your")
+                .pokeFont(.title2)
+            
+            
+            Text("Pokémon")
+                .pokeFont(.title)
         }
-        .onAppear {
-            viewModel.loadMoreContentIfNeeded(currentItem: nil)
-        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     @ViewBuilder
@@ -46,19 +39,6 @@ extension HomeScreenView {
                     Spacer()
                 }
             )
-    }
-    
-    @ViewBuilder
-    var header: some View {
-        VStack(alignment: .leading) {
-            Text("Search Your")
-                .pokeFont(.title2)
-            
-            
-            Text("Pokémon")
-                .pokeFont(.title)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
     
     @ViewBuilder
@@ -95,4 +75,114 @@ extension HomeScreenView {
                 .aspectRatio(0.6, contentMode: .fill)
         }
     }
+    
+    
+    @ViewBuilder
+    var infiniteScroll: some View {
+        let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
+        
+        ScrollView(showsIndicators: false) {
+            LazyVGrid(columns: gridItems, spacing: 10) {
+                if !viewModel.pokemons.isEmpty {
+                    
+                    ForEach(viewModel.pokemons, id: \.self) { pokemon in
+                        let pokeColor = viewModel.pokemonColors[pokemon.name]
+                        
+                        VStack {
+                            pokeLabel(pokemon)
+                                .padding(.top, 5)
+                            
+                            Spacer()
+                            
+                            HStack {
+                                
+                                if let types = viewModel.pokemonDetails[pokemon.name]?.types {
+                                    typesList(types)
+                                }
+                                
+                                HStack(alignment: .bottom) {
+                                    
+                                    Spacer()
+                                    pokeImage(pokemon, pokeColor: pokeColor)
+                                        .frame(width: 80, height: 80)
+                                }
+                            }
+                            
+                        }
+                        .frame(height: 120)
+                        .background(
+                            RoundedRectangle(cornerRadius: 20)
+                                .fill((pokeColor ?? themeManager.currentTheme.accent).gradient)
+                                .opacity(0.8)
+                                .padding(.horizontal, 2)
+                        )
+                        .onAppear {
+                            viewModel.loadMoreContentIfNeeded(currentItem: pokemon)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func typesList(_ types: [PokemonType]) -> some View {
+        VStack(alignment: .leading) {
+            ForEach(types) { type in
+                
+                HStack {
+                    Text(type.type.name.capitalized)
+                        .pokeFont(.footNote)
+                }
+                .padding(.horizontal, 5)
+                .padding(.vertical, 2)
+                .background(
+                    Capsule()
+                        .fill(.thinMaterial)
+                )
+            }
+        }
+        .minimumScaleFactor(0.8)
+        .padding()
+    }
+    
+    
+    @ViewBuilder
+    private func pokeLabel(_ pokemon: NamedAPIResource) -> some View {
+        HStack {
+            Text(pokemon.name.capitalized)
+                .pokeFont(.body)
+                .bold()
+                .multilineTextAlignment(.center)
+            Spacer()
+            
+            Text("#\(viewModel.pokemonDetails[pokemon.name]?.id ?? 0)")
+                .pokeFont(.footNote)
+        }
+        .padding()
+    }
+    
+    @ViewBuilder
+    private func pokeImage(_ pokemon: NamedAPIResource, pokeColor: Color?) -> some View {
+        ZStack {
+            Circle()
+                .fill(.ultraThinMaterial)
+                .overlay {
+                    if let details = viewModel.pokemonDetails[pokemon.name],
+                       let url = details.sprites?.frontDefault {
+                        WebImage(url: url)
+                            .resizable()
+                            .indicator(.activity)
+                        
+                    } else {
+                        ProgressView()
+                            .onAppear {
+                                viewModel.loadPokemonDetails(for: pokemon)
+                            }
+                    }
+                }
+            
+        }
+    }
+    
 }

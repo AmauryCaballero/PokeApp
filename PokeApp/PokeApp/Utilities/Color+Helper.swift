@@ -26,4 +26,33 @@ extension Color {
         
         self.init(.sRGB, red: Double(r) / 255, green: Double(g) / 255, blue: Double(b) / 255, opacity: Double(a) / 255)
     }
+    
+    static func named(_ name: String) -> Color {
+        switch name.lowercased() {
+        case "black":
+            return .black
+        case "blue":
+            return .blue
+        case "pink":
+            return .pink
+        case "red":
+            return .red
+        case "green":
+            return .green
+        case "yellow":
+            return .yellow
+        case "purple":
+            return .purple
+        case "brown":
+            return .brown
+        case "grey", "gray":
+            return .gray
+        case "white":
+            return .white
+        case "orange":
+            return .orange
+        default:
+            return .red
+        }
+    }
 }

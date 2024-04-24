@@ -10,13 +10,24 @@ import Combine
 import Foundation
 
 class NetworkService: NetworkServiceProtocol {
+
     private var session: Session
 
     // Injecting Alamofire session for flexibility and testability
     init(session: Session = AF) {
         self.session = session
     }
-
+    
+    func fetchPokemonColor(id: Int) -> AnyPublisher<PokemonColor, any Error> {
+        let endpoint = APIEndpoint.pokemonColor(id)
+        let url = endpoint.url
+        return request(url)
+    }
+    
+    func fetchPokemonDetails(url: URL) -> AnyPublisher<PokemonDetail, any Error> {
+        return request(url)
+    }
+    
     func fetchPokemonList(limit: Int = 20, offset: Int = 0) -> AnyPublisher<PokemonListResponse, Error> {
         let endpoint = APIEndpoint.pokemonList(limit: limit, offset: offset)
         let url = endpoint.url

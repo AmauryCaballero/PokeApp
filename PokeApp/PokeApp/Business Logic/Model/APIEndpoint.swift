@@ -11,6 +11,7 @@ enum APIEndpoint {
     case pokemonList(limit: Int, offset: Int)
     case pokemonDetail(Int)
     case pokemonByName(String)
+    case pokemonColor(Int)
 
     var url: URL {
         switch self {
@@ -25,6 +26,8 @@ enum APIEndpoint {
             return APIConfig.baseURL.appendingPathComponent("pokemon/\(id)")
         case .pokemonByName(let name):
             return APIConfig.baseURL.appendingPathComponent("pokemon/\(name)")
+        case .pokemonColor(let name):
+            return APIConfig.baseURL.appendingPathComponent("pokemon-color/\(name)")
         }
     }
 }

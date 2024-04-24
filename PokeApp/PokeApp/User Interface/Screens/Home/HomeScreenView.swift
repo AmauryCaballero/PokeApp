@@ -21,9 +21,8 @@ struct HomeScreenView: View {
                 searchBar
                 
                 infiniteScroll
-
             }
-            .padding(50)
+            .padding(.horizontal, 50)
         }
     }
 }

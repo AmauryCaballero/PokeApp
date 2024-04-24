@@ -35,5 +35,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .environmentObject(ThemeManager())
-        .environment(\.colorScheme, .dark)
 }
