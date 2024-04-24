@@ -16,15 +16,23 @@ class HomeScreenViewModel: BaseViewModel {
     @Published var pokemonColors: [String: Color] = [:]
     @Published var searchTerm = ""
     
+    @Published var parameters: NavigationParameters? = nil
+
     private var offset = 0
     private let limit = 10
     
-    override init(
-        networkService: any NetworkServiceProtocol,
-        navigationParameters: [String : Any]? = nil) {
+    init(networkService: any NetworkServiceProtocol) {
         super.init(networkService: networkService)
         loadMoreContentIfNeeded(currentItem: nil)
         setupSearch()
+    }
+    
+    func selectPokemon(_ pokemon: NamedAPIResource) {
+        if let pokeDetail = pokemonDetails[pokemon.name] {
+            parameters = NavigationParameters([
+                NavigationParametersKeys.pokemonDetail.rawValue: pokeDetail
+            ])
+        }
     }
     
     func loadMoreContentIfNeeded(currentItem pokemon: NamedAPIResource?) {
