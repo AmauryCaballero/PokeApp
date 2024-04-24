@@ -8,7 +8,12 @@
 import SwiftUI
 struct DetailScreenView: View {
     @ObservedObject var viewModel: DetailScreenViewModel
+    @EnvironmentObject var themeManager: ThemeManager
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @State private var selectedTab = "About"
+    let tabs = ["About", "Stats", "Moves", "Evolutions"]
+    
     var body: some View {
         NavigationView {
             
@@ -24,6 +29,47 @@ struct DetailScreenView: View {
                             Text(pokemonInfo.name?.capitalized ?? "")
                                 .pokeFont(.title)
                             
+                            HStack {
+                                ForEach(tabs, id: \.self) { tab in
+                                    Button(action: {
+                                        self.selectedTab = tab
+                                    }) {
+                                        Text(tab)
+                                            .pokeFont(.button)
+                                            .foregroundColor(self.selectedTab == tab ? themeManager.currentTheme.text : .gray)
+                                            .frame(maxWidth: .infinity)
+                                            .background (
+                                                Capsule()
+                                                    .frame(height: 4)
+                                                    .padding(.horizontal, 10)
+                                                    .foregroundColor(self.selectedTab == tab ? themeManager.currentTheme.text : .clear)
+                                                    .offset(y: 12),
+                                                alignment: .bottomLeading
+                                                
+                                            )
+                                    }
+                                }
+                            }
+                            
+                            TabView(selection: $selectedTab) {
+                                aboutTab(pokemonInfo)
+                                    .tag(tabs[0])
+                                
+                                tab(tabs[1])
+                                    .tag(tabs[1])
+                                
+                                tab(tabs[2])
+                                    .tag(tabs[2])
+                                
+                                tab(tabs[3])
+                                    .tag(tabs[3])
+                                
+                                
+                            }
+                            .frame(maxWidth: .infinity)
+                            .frame(height: UIScreen.main.bounds.width)
+                            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                            .animation(.default, value: selectedTab)
                             
                         }
                         

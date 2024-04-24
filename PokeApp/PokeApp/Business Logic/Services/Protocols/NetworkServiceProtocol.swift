@@ -27,7 +27,7 @@ protocol NetworkServiceProtocol {
     /// Fetches the color of a specific Pokemon by its unique identifier.
     /// - Parameter id: The unique identifier of the Pokemon.
     /// - Returns: An `AnyPublisher` that outputs `PokemonColor` and errors out with `Error`.
-    /// This method retrieves all relevant details for a Pokemon, name by its `name`, from the Pokemon API.
+    /// This method retrieves all relevant details for a Pokemon, name by its `id`, from the Pokemon API.
     func fetchPokemonColor(id: Int) -> AnyPublisher<PokemonColor, Error>
     
     /// Fetches detailed information about a specific Pokemon by its unique identifier.

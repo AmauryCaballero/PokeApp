@@ -28,6 +28,59 @@ extension DetailScreenView {
     }
     
     @ViewBuilder
+    func aboutTab(_ pokemonInfo: PokemonDetail) -> some View {
+        HStack {
+            Spacer()
+            VStack(spacing: 5) {
+                HStack {
+                    Image(systemName: "platter.top.applewatch.case")
+                    Text("\(pokemonInfo.weight ?? 0)kg")
+                        .pokeFont(.body)
+                        .bold()
+                }
+                Text("Weight")
+                    .pokeFont(.footNote)
+            }
+            
+            Spacer()
+            
+            Capsule()
+                .frame(width: 2, height: 50)
+                .padding(.vertical, 10)
+                .foregroundColor(themeManager.currentTheme.text)
+                
+            Spacer()
+            
+            VStack(spacing: 5) {
+                
+                HStack {
+                    Image(systemName: "arrow.up")
+                    Text("\(pokemonInfo.height ?? 0)m")
+                        .pokeFont(.body)
+                        .bold()
+                }
+                
+                Text("Height")
+                    .pokeFont(.footNote)
+            }
+            
+            Spacer()
+        }
+        .frame(alignment: .top)
+        .padding(.horizontal, 15)
+        .background(RoundedRectangle(cornerRadius: 15)
+            .fill(.regularMaterial)
+            .padding(.horizontal, 15)
+        )
+    }
+    
+    @ViewBuilder
+    func tab(_ text: String) -> some View {
+        Text(text)
+            .pokeFont(.title2)
+    }
+    
+    @ViewBuilder
     func pokemonImage(_ pokemon: PokemonDetail) -> some View {
         WebImage(url: pokemon.sprites?.frontDefault)
             .resizable()
