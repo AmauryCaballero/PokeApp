@@ -19,8 +19,11 @@ struct HomeScreenView: View {
                 header
                 
                 searchBar
-                
-                infiniteScroll
+                if !viewModel.searchedPokemons.isEmpty {
+                    infiniteScroll(viewModel.searchedPokemons)
+                } else {
+                    infiniteScroll(viewModel.pokemons)
+                }
             }
             .padding(.horizontal, 50)
         }

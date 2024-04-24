@@ -25,7 +25,7 @@ extension HomeScreenView {
     
     @ViewBuilder
     var searchBar: some View {
-        TextField("Search a Pokémon", text: .constant(""))
+        TextField("Search a Pokémon", text: $viewModel.searchTerm)
             .padding(7)
             .padding(.horizontal, 30)
             .background(RoundedRectangle(cornerRadius: 20)
@@ -78,14 +78,14 @@ extension HomeScreenView {
     
     
     @ViewBuilder
-    var infiniteScroll: some View {
+    func infiniteScroll(_ pokemons: [NamedAPIResource]) -> some View {
         let gridItems = [GridItem(.flexible()), GridItem(.flexible())]
         
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: gridItems, spacing: 10) {
-                if !viewModel.pokemons.isEmpty {
+                if !pokemons.isEmpty {
                     
-                    ForEach(viewModel.pokemons, id: \.self) { pokemon in
+                    ForEach(pokemons, id: \.self) { pokemon in
                         let pokeColor = viewModel.pokemonColors[pokemon.name]
                         
                         VStack {
@@ -101,11 +101,13 @@ extension HomeScreenView {
                                 }
                                 
                                 HStack(alignment: .bottom) {
-                                    
                                     Spacer()
                                     pokeImage(pokemon, pokeColor: pokeColor)
                                         .frame(width: 80, height: 80)
                                 }
+                            }
+                            .onAppear {
+                                viewModel.loadPokemonDetails(for: pokemon)
                             }
                             
                         }
@@ -176,9 +178,6 @@ extension HomeScreenView {
                         
                     } else {
                         ProgressView()
-                            .onAppear {
-                                viewModel.loadPokemonDetails(for: pokemon)
-                            }
                     }
                 }
             

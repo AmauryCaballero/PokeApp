@@ -7,20 +7,22 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 class HomeScreenViewModel: BaseViewModel {
-    
+    @Published var searchedPokemons: [NamedAPIResource] = []
     @Published var pokemons: [NamedAPIResource] = []
     @Published var pokemonDetails: [String: PokemonDetail] = [:]
     @Published var pokemonColors: [String: Color] = [:]
+    @Published var searchTerm = ""
     
     private var offset = 0
     private let limit = 10
     
-    
     override init(networkService: any NetworkServiceProtocol) {
         super.init(networkService: networkService)
         loadMoreContentIfNeeded(currentItem: nil)
+        setupSearch()
     }
     
     func loadMoreContentIfNeeded(currentItem pokemon: NamedAPIResource?) {
@@ -52,14 +54,56 @@ class HomeScreenViewModel: BaseViewModel {
             .store(in: &cancellables)
     }
     
+    
+    private func setupSearch() {
+        $searchTerm
+            .removeDuplicates()
+            .debounce(for: .milliseconds(200), scheduler: RunLoop.main)
+            .flatMap { searchTerm in self.performSearch(searchTerm)}
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$searchedPokemons)
+    }
+    
+    private func performSearch(_ searchTerm: String) ->  AnyPublisher<[NamedAPIResource], Never> {
+        guard !searchTerm.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            self.searchedPokemons = []
+            return Just([]).eraseToAnyPublisher()
+        }
+        
+        return Just(pokemons.filter {
+            $0.name.localizedCaseInsensitiveContains(searchTerm)
+        })
+        .eraseToAnyPublisher()
+        
+        // FIXME: The API does not allow to do a search by partial name, so I will limit this function to searching for pokemons that are already local.
+        /* networkService.searchPokemonByName(name: searchTerm.lowercased())
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                if case .failure(let failure) = completion {
+                    print("ERROR searching: \(failure.localizedDescription)")
+                }
+            },
+                  receiveValue: { [weak self] response in
+                guard let self = self else { return }
+                self.searchedPokemons.append(response)
+            })
+            .store(in: &cancellables)
+         */
+    }
+    
     private func loadPokemonColor(for pokemon: NamedAPIResource) {
         guard let pokemonDetails = pokemonDetails[pokemon.name] else { return }
         
         networkService.fetchPokemonColor(id: pokemonDetails.id ?? 0)
             .receive(on: DispatchQueue.main)
-            .map { Color.named($0.name)}
-            .sink(receiveCompletion: { _ in},
-                  receiveValue: { [weak self] color in
+            .map {
+                Color.named($0.name)
+            }
+            .sink(receiveCompletion: { completion in
+                if case .failure(let failure) = completion {
+                    print("\(String(describing: pokemonDetails.name)) \(String(describing: pokemonDetails.id)): \(failure.localizedDescription)")
+                }
+            },receiveValue: { [weak self] color in
                 withAnimation {
                     self?.pokemonColors[pokemon.name] = color
                 }
