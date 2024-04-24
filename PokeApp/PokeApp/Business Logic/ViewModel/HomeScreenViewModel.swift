@@ -19,7 +19,9 @@ class HomeScreenViewModel: BaseViewModel {
     private var offset = 0
     private let limit = 10
     
-    override init(networkService: any NetworkServiceProtocol) {
+    override init(
+        networkService: any NetworkServiceProtocol,
+        navigationParameters: [String : Any]? = nil) {
         super.init(networkService: networkService)
         loadMoreContentIfNeeded(currentItem: nil)
         setupSearch()
@@ -77,17 +79,17 @@ class HomeScreenViewModel: BaseViewModel {
         
         // FIXME: The API does not allow to do a search by partial name, so I will limit this function to searching for pokemons that are already local.
         /* networkService.searchPokemonByName(name: searchTerm.lowercased())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                if case .failure(let failure) = completion {
-                    print("ERROR searching: \(failure.localizedDescription)")
-                }
-            },
-                  receiveValue: { [weak self] response in
-                guard let self = self else { return }
-                self.searchedPokemons.append(response)
-            })
-            .store(in: &cancellables)
+         .receive(on: DispatchQueue.main)
+         .sink(receiveCompletion: { completion in
+         if case .failure(let failure) = completion {
+         print("ERROR searching: \(failure.localizedDescription)")
+         }
+         },
+         receiveValue: { [weak self] response in
+         guard let self = self else { return }
+         self.searchedPokemons.append(response)
+         })
+         .store(in: &cancellables)
          */
     }
     

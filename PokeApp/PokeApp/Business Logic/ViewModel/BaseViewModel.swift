@@ -12,10 +12,12 @@ open class BaseViewModel: ObservableObject {
     @Published public var isLoading = false
     
     let networkService: NetworkServiceProtocol
+    let navigationParameters: [String: Any]?
     
     var cancellables = Set<AnyCancellable>()
     
-    init(networkService: NetworkServiceProtocol) {
+    init(networkService: NetworkServiceProtocol, navigationParameters: [String : Any]? = nil) {
+        self.navigationParameters = navigationParameters
         self.networkService = networkService
     }
     
