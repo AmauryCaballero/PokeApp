@@ -88,29 +88,32 @@ extension HomeScreenView {
                     ForEach(pokemons, id: \.self) { pokemon in
                         let pokeColor = viewModel.pokemonColors[pokemon.name]
                         
-                        VStack {
-                            pokeLabel(pokemon)
-                                .padding(.top, 5)
-                            
-                            Spacer()
-                            
-                            HStack {
+                        Button(action: {viewModel.selectPokemon(pokemon)}) {
+                            VStack {
+                                pokeLabel(pokemon)
+                                    .padding(.top, 5)
                                 
-                                if let types = viewModel.pokemonDetails[pokemon.name]?.types {
-                                    typesList(types)
+                                Spacer()
+                                
+                                HStack {
+                                    
+                                    if let types = viewModel.pokemonDetails[pokemon.name]?.types {
+                                        typesList(types)
+                                    }
+                                    
+                                    HStack(alignment: .bottom) {
+                                        Spacer()
+                                        pokeImage(pokemon, pokeColor: pokeColor)
+                                            .frame(width: 80, height: 80)
+                                    }
+                                }
+                                .onAppear {
+                                    viewModel.loadPokemonDetails(for: pokemon)
                                 }
                                 
-                                HStack(alignment: .bottom) {
-                                    Spacer()
-                                    pokeImage(pokemon, pokeColor: pokeColor)
-                                        .frame(width: 80, height: 80)
-                                }
                             }
-                            .onAppear {
-                                viewModel.loadPokemonDetails(for: pokemon)
-                            }
-                            
                         }
+                        .accentColor(themeManager.currentTheme.text)
                         .frame(height: 120)
                         .background(
                             RoundedRectangle(cornerRadius: 20)

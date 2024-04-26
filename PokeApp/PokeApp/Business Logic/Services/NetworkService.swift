@@ -18,6 +18,16 @@ class NetworkService: NetworkServiceProtocol {
         self.session = session
     }
     
+    func fetchEvolutionChain(from url: URL) -> AnyPublisher<EvolutionChain, any Error> {
+        return request(url)
+    }
+    
+    func fetchPokemonSpecies(name: String) -> AnyPublisher<PokemonSpecies, any Error> {
+        let endpoint = APIEndpoint.pokemonSpecies(name)
+        let url = endpoint.url
+        return request(url)
+    }
+    
     func fetchPokemonColor(id: Int) -> AnyPublisher<PokemonColor, any Error> {
         let endpoint = APIEndpoint.pokemonColor(id)
         let url = endpoint.url
@@ -40,7 +50,7 @@ class NetworkService: NetworkServiceProtocol {
         return request(url)
     }
 
-    func searchPokemonByName(name: String) -> AnyPublisher<PokemonDetail, Error> {
+    func searchPokemonByName(name: String) -> AnyPublisher<PokemonListResponse, Error> {
         let endpoint = APIEndpoint.pokemonByName(name)
         let url = endpoint.url
         return request(url)

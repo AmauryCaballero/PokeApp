@@ -8,5 +8,7 @@
 import SwiftUI
 
 extension View {
-    
+    func centerOnScreen() -> some View {
+        self.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+    }
 }

@@ -16,13 +16,25 @@ class HomeScreenViewModel: BaseViewModel {
     @Published var pokemonColors: [String: Color] = [:]
     @Published var searchTerm = ""
     
+    @Published var parameters: NavigationParameters? = nil
+
     private var offset = 0
     private let limit = 10
     
-    override init(networkService: any NetworkServiceProtocol) {
+    init(networkService: any NetworkServiceProtocol) {
         super.init(networkService: networkService)
         loadMoreContentIfNeeded(currentItem: nil)
         setupSearch()
+    }
+    
+    func selectPokemon(_ pokemon: NamedAPIResource) {
+        if let pokeDetail = pokemonDetails[pokemon.name],
+            let pokeColor = pokemonColors[pokemon.name] {
+            parameters = NavigationParameters([
+                NavigationParametersKeys.pokemonDetail.rawValue: pokeDetail,
+                NavigationParametersKeys.pokemonColor.rawValue: pokeColor
+            ])
+        }
     }
     
     func loadMoreContentIfNeeded(currentItem pokemon: NamedAPIResource?) {
@@ -77,17 +89,17 @@ class HomeScreenViewModel: BaseViewModel {
         
         // FIXME: The API does not allow to do a search by partial name, so I will limit this function to searching for pokemons that are already local.
         /* networkService.searchPokemonByName(name: searchTerm.lowercased())
-            .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
-                if case .failure(let failure) = completion {
-                    print("ERROR searching: \(failure.localizedDescription)")
-                }
-            },
-                  receiveValue: { [weak self] response in
-                guard let self = self else { return }
-                self.searchedPokemons.append(response)
-            })
-            .store(in: &cancellables)
+         .receive(on: DispatchQueue.main)
+         .sink(receiveCompletion: { completion in
+         if case .failure(let failure) = completion {
+         print("ERROR searching: \(failure.localizedDescription)")
+         }
+         },
+         receiveValue: { [weak self] response in
+         guard let self = self else { return }
+         self.searchedPokemons.append(response)
+         })
+         .store(in: &cancellables)
          */
     }
     
