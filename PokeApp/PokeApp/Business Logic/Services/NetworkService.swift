@@ -58,8 +58,7 @@ class NetworkService: NetworkServiceProtocol {
         return request(url)
     }
 
-    private func request<T: Decodable>(_ url: URL, method: HTTPMethod = .get, parameters: Parameters? = nil) -> AnyPublisher<T, Error> {
-        
+    private func request<T: Codable>(_ url: URL, method: HTTPMethod = .get, parameters: Parameters? = nil) -> AnyPublisher<T, Error> {
         let key = "\(method.rawValue)\(url.absoluteString)"
         
         if let cachedData: T = cache.get(for: key) {
@@ -67,7 +66,7 @@ class NetworkService: NetworkServiceProtocol {
                 .setFailureType(to: Error.self)
                 .eraseToAnyPublisher()
         }
-        
+
         return session.request(url, method: method, parameters: parameters, encoding: URLEncoding.default)
             .validate()
             .publishDecodable(type: T.self)
