@@ -12,10 +12,12 @@ import Foundation
 class NetworkService: NetworkServiceProtocol {
 
     private var session: Session
+    private var cache: CacheManagerServiceProtocol
 
     // Injecting Alamofire session for flexibility and testability
-    init(session: Session = AF) {
+    init(session: Session = AF, cache: CacheManagerServiceProtocol) {
         self.session = session
+        self.cache = cache
     }
     
     func fetchEvolutionChain(from url: URL) -> AnyPublisher<EvolutionChain, any Error> {
@@ -56,12 +58,23 @@ class NetworkService: NetworkServiceProtocol {
         return request(url)
     }
 
-    private func request<T: Decodable>(_ url: URL, method: HTTPMethod = .get, parameters: Parameters? = nil) -> AnyPublisher<T, Error> {
+    private func request<T: Codable>(_ url: URL, method: HTTPMethod = .get, parameters: Parameters? = nil) -> AnyPublisher<T, Error> {
+        let key = "\(method.rawValue)\(url.absoluteString)"
+        
+        if let cachedData: T = cache.get(for: key) {
+            return Just(cachedData)
+                .setFailureType(to: Error.self)
+                .eraseToAnyPublisher()
+        }
+
         return session.request(url, method: method, parameters: parameters, encoding: URLEncoding.default)
             .validate()
             .publishDecodable(type: T.self)
             .value()
             .mapError { $0 as Error }
+            .handleEvents(receiveOutput: { [weak self] response in
+                self?.cache.set(response, for: key)
+            })
             .eraseToAnyPublisher()
     }
 }

@@ -47,6 +47,10 @@
 		638D106B2BD303A000E1A19B /* PokemonDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D106A2BD303A000E1A19B /* PokemonDetail.swift */; };
 		638D106E2BD3046800E1A19B /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D106D2BD3046800E1A19B /* NetworkServiceProtocol.swift */; };
 		638D10702BD3093900E1A19B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638D106F2BD3093900E1A19B /* NetworkService.swift */; };
+		63CB03822BDB6B2300449DD5 /* CacheManagerServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CB03812BDB6B2300449DD5 /* CacheManagerServiceProtocol.swift */; };
+		63CB03842BDB6EFD00449DD5 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CB03832BDB6EFD00449DD5 /* CacheManager.swift */; };
+		63CB03872BDB8D9700449DD5 /* Cache in Frameworks */ = {isa = PBXBuildFile; productRef = 63CB03862BDB8D9700449DD5 /* Cache */; };
+		63CB03892BDB8F7500449DD5 /* CacheManagerServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CB03882BDB8F7500449DD5 /* CacheManagerServiceTests.swift */; };
 		63CF125E2BD8EA39002DD46F /* NavigationParametersKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF125D2BD8EA39002DD46F /* NavigationParametersKeys.swift */; };
 		63CF12622BD8ECD4002DD46F /* NavigationParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF12612BD8ECD4002DD46F /* NavigationParameters.swift */; };
 		63CF12652BD8EDB6002DD46F /* DetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CF12642BD8EDB6002DD46F /* DetailScreenView.swift */; };
@@ -122,6 +126,9 @@
 		638D106A2BD303A000E1A19B /* PokemonDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetail.swift; sourceTree = "<group>"; };
 		638D106D2BD3046800E1A19B /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 		638D106F2BD3093900E1A19B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		63CB03812BDB6B2300449DD5 /* CacheManagerServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManagerServiceProtocol.swift; sourceTree = "<group>"; };
+		63CB03832BDB6EFD00449DD5 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		63CB03882BDB8F7500449DD5 /* CacheManagerServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManagerServiceTests.swift; sourceTree = "<group>"; };
 		63CF125D2BD8EA39002DD46F /* NavigationParametersKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationParametersKeys.swift; sourceTree = "<group>"; };
 		63CF12612BD8ECD4002DD46F /* NavigationParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationParameters.swift; sourceTree = "<group>"; };
 		63CF12642BD8EDB6002DD46F /* DetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScreenView.swift; sourceTree = "<group>"; };
@@ -140,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63E514302BD7F5CD00B830C9 /* SDWebImageSwiftUI in Frameworks */,
+				63CB03872BDB8D9700449DD5 /* Cache in Frameworks */,
 				638D105F2BD2F9EC00E1A19B /* Alamofire in Frameworks */,
 				63E514292BD76DB800B830C9 /* Swinject in Frameworks */,
 			);
@@ -279,6 +287,7 @@
 			children = (
 				638D106C2BD3044700E1A19B /* Protocols */,
 				638D106F2BD3093900E1A19B /* NetworkService.swift */,
+				63CB03832BDB6EFD00449DD5 /* CacheManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -323,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				638957E32BD59C5600A1D7F6 /* NetworkServiceTests.swift */,
+				63CB03882BDB8F7500449DD5 /* CacheManagerServiceTests.swift */,
 			);
 			path = ServicesTests;
 			sourceTree = "<group>";
@@ -408,6 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				638D106D2BD3046800E1A19B /* NetworkServiceProtocol.swift */,
+				63CB03812BDB6B2300449DD5 /* CacheManagerServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -441,6 +452,7 @@
 				638D105E2BD2F9EC00E1A19B /* Alamofire */,
 				63E514282BD76DB800B830C9 /* Swinject */,
 				63E5142F2BD7F5CD00B830C9 /* SDWebImageSwiftUI */,
+				63CB03862BDB8D9700449DD5 /* Cache */,
 			);
 			productName = PokeApp;
 			productReference = 63461EA92BD24FEC00C002E5 /* PokeApp.app */;
@@ -518,6 +530,7 @@
 				638D105D2BD2F9EC00E1A19B /* XCRemoteSwiftPackageReference "Alamofire" */,
 				63E514272BD76DB800B830C9 /* XCRemoteSwiftPackageReference "Swinject" */,
 				63E5142E2BD7F5CD00B830C9 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				63CB03852BDB8D9700449DD5 /* XCRemoteSwiftPackageReference "Cache" */,
 			);
 			productRefGroup = 63461EAA2BD24FEC00C002E5 /* Products */;
 			projectDirPath = "";
@@ -594,8 +607,10 @@
 				63461EAD2BD24FEC00C002E5 /* PokeAppApp.swift in Sources */,
 				63E514322BD8429600B830C9 /* PokemonColor.swift in Sources */,
 				6389583C2BD6586900A1D7F6 /* View+Modifiers.swift in Sources */,
+				63CB03822BDB6B2300449DD5 /* CacheManagerServiceProtocol.swift in Sources */,
 				638D106E2BD3046800E1A19B /* NetworkServiceProtocol.swift in Sources */,
 				63CF126D2BD9B3FC002DD46F /* StatBarView.swift in Sources */,
+				63CB03842BDB6EFD00449DD5 /* CacheManager.swift in Sources */,
 				638957F12BD6301D00A1D7F6 /* HomeScreenView.swift in Sources */,
 				638957FB2BD6391700A1D7F6 /* ThemeManager.swift in Sources */,
 				638D10702BD3093900E1A19B /* NetworkService.swift in Sources */,
@@ -610,6 +625,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63CB03892BDB8F7500449DD5 /* CacheManagerServiceTests.swift in Sources */,
 				638957E62BD59CCD00A1D7F6 /* MockURLProtocol.swift in Sources */,
 				638957E42BD59C5600A1D7F6 /* NetworkServiceTests.swift in Sources */,
 				63461EC32BD24FED00C002E5 /* PokeAppTests.swift in Sources */,
@@ -946,6 +962,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		63CB03852BDB8D9700449DD5 /* XCRemoteSwiftPackageReference "Cache" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hyperoslo/Cache";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
 		63E514272BD76DB800B830C9 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -969,6 +993,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 638D105D2BD2F9EC00E1A19B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		63CB03862BDB8D9700449DD5 /* Cache */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63CB03852BDB8D9700449DD5 /* XCRemoteSwiftPackageReference "Cache" */;
+			productName = Cache;
 		};
 		63E514282BD76DB800B830C9 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;

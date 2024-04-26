@@ -147,7 +147,7 @@ class HomeScreenViewModel: BaseViewModel {
 
 extension HomeScreenViewModel {
     static func preview() -> HomeScreenViewModel {
-        let viewmodel = HomeScreenViewModel(networkService: NetworkService())
+        let viewmodel = HomeScreenViewModel(networkService: NetworkService(cache: CacheManager()))
         return viewmodel
     }
 }
