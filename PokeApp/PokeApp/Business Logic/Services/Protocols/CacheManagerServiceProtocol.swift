@@ -6,6 +6,6 @@
 //
 
 protocol CacheManagerServiceProtocol {
-    func get<T: Decodable>(for key: String) -> T?
-    func set<T: Decodable>(_ item: T, for key: String)
+    func get<T: Codable>(for key: String) -> T?
+    func set<T: Codable>(_ item: T, for key: String)
 }
