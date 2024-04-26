@@ -21,7 +21,7 @@ class NetworkServiceTests: XCTestCase {
         let configuration = URLSessionConfiguration.af.default
         configuration.protocolClasses = [MockURLProtocol.self] + (configuration.protocolClasses ?? [])
         let session = Session(configuration: configuration)
-        networkService = NetworkService(session: session)
+        networkService = NetworkService(session: session, cache: CacheManager())
     }
     
     override func tearDown() {
