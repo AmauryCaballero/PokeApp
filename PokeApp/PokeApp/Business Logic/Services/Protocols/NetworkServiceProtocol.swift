@@ -11,8 +11,17 @@ import Foundation
 /// Protocol `NetworkServiceProtocol` defines the networking capabilities for fetching Pokemon data from a remote server.
 protocol NetworkServiceProtocol {
     
+    /// Fetches the evolutionary chain of a Pokemon from a given URL.
+    /// - Parameter url: The URL that points to the specific evolutionary chain resource.
+    /// - Returns: An `AnyPublisher` that outputs `EvolutionChain` and errors out with `Error`.
+    /// This method retrieves the complete evolutionary chain that includes all evolutionary stages of a Pokemon. This information is critical for understanding the different forms a Pokemon can take as it evolves.
+
     func fetchEvolutionChain(from url: URL) -> AnyPublisher<EvolutionChain, Error>
     
+    /// Fetches detailed information about a specific Pokemon species by its name.
+    /// - Parameter name: The name of the Pokemon species to retrieve.
+    /// - Returns: An `AnyPublisher` that outputs `PokemonSpecies` and errors out with `Error`.
+    /// This method retrieves all relevant details about a Pokemon species, identified by its name, from the Pokemon API. The response includes evolutionary data and various attributes of the species.
     func fetchPokemonSpecies(name: String) -> AnyPublisher<PokemonSpecies, Error>
     
     /// Fetches a list of Pokemon with pagination support.
@@ -29,16 +38,16 @@ protocol NetworkServiceProtocol {
     /// This method retrieves all relevant details for a Pokemon, identified by its `id`, from the Pokemon API.
     func fetchPokemonDetails(url: URL) -> AnyPublisher<PokemonDetail, Error>
     
-    /// Fetches the color of a specific Pokemon by its unique identifier.
-    /// - Parameter id: The unique identifier of the Pokemon.
+    /// Fetches the color associated with a specific Pokemon by its unique identifier.
+    /// - Parameter id: The unique identifier of the Pokemon whose color is to be retrieved.
     /// - Returns: An `AnyPublisher` that outputs `PokemonColor` and errors out with `Error`.
-    /// This method retrieves all relevant details for a Pokemon, name by its `id`, from the Pokemon API.
+    /// This method retrieves the primary color of a Pokemon, which can be used for thematic or sorting purposes in applications.
     func fetchPokemonColor(id: Int) -> AnyPublisher<PokemonColor, Error>
     
     /// Fetches detailed information about a specific Pokemon by its unique identifier.
     /// - Parameter id: The unique identifier of the Pokemon.
     /// - Returns: An `AnyPublisher` that outputs `PokemonDetail` and errors out with `Error`.
-    /// This method retrieves all relevant details for a Pokemon, identified by its `id`, from the Pokemon API.
+    /// This method retrieves all relevant details for a Pokemon, identified by its `id`, including its abilities, base experience, forms, moves, and types from the Pokemon API.
     func fetchPokemonDetails(id: Int) -> AnyPublisher<PokemonDetail, Error>
     
     /// Searches for Pokemon by their name.

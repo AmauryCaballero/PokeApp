@@ -26,9 +26,6 @@ class DetailScreenViewModel: BaseViewModel {
         if let color: Color = navigationParameters?.getValue(NavigationParametersKeys.pokemonColor.rawValue) {
             self.pokemonColor = color
         }
-        
-        
-        
     }
     
     private func getEvolutionDetails(for pokemonName: String) {
