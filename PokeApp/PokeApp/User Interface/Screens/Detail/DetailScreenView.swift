@@ -18,6 +18,8 @@ struct DetailScreenView: View {
         NavigationView {
             
             ZStack {
+                backgroundColor
+                
                 if let pokemonInfo = viewModel.pokemonDetails {
                     backgroundImage(pokemonInfo)
                     
@@ -84,7 +86,7 @@ struct DetailScreenView: View {
                 {
                     Image(systemName: "chevron.down")
                         .foregroundColor(viewModel.pokemonColor ?? themeManager.currentTheme.accent)
-                        
+                    
                 }
             )
         }

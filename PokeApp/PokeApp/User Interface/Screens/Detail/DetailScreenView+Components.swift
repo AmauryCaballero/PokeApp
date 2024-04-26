@@ -10,6 +10,27 @@ import SDWebImageSwiftUI
 
 
 extension DetailScreenView {
+    
+    @ViewBuilder
+    var backgroundColor: some View {
+        ZStack {
+            Circle()
+                .fill(viewModel.pokemonColor ?? themeManager.currentTheme.accent)
+                .frame(height: 300)
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
+                .offset(x: 20, y: 100)
+            
+            Circle()
+                .fill(viewModel.pokemonColor ?? themeManager.currentTheme.secondary)
+                .frame(height: 180)
+                .padding()
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        }
+        .ignoresSafeArea(.all)
+        .blur(radius: 100)
+    }
+    
     @ViewBuilder
     func backgroundImage(_ pokemon: PokemonDetail) -> some View {
         VStack {
