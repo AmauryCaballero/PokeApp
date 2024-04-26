@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6336D27C2BDA2D9100F897F0 /* PokemonSpecies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6336D27B2BDA2D9100F897F0 /* PokemonSpecies.swift */; };
+		6336D27E2BDA2DA800F897F0 /* EvolutionChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6336D27D2BDA2DA800F897F0 /* EvolutionChain.swift */; };
 		63461EAD2BD24FEC00C002E5 /* PokeAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63461EAC2BD24FEC00C002E5 /* PokeAppApp.swift */; };
 		63461EAF2BD24FEC00C002E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63461EAE2BD24FEC00C002E5 /* ContentView.swift */; };
 		63461EB12BD24FED00C002E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63461EB02BD24FED00C002E5 /* Assets.xcassets */; };
@@ -77,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6336D27B2BDA2D9100F897F0 /* PokemonSpecies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonSpecies.swift; sourceTree = "<group>"; };
+		6336D27D2BDA2DA800F897F0 /* EvolutionChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvolutionChain.swift; sourceTree = "<group>"; };
 		63461EA92BD24FEC00C002E5 /* PokeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63461EAC2BD24FEC00C002E5 /* PokeAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeAppApp.swift; sourceTree = "<group>"; };
 		63461EAE2BD24FEC00C002E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -236,6 +240,8 @@
 				638D10682BD3039400E1A19B /* PokemonListResponse.swift */,
 				638D106A2BD303A000E1A19B /* PokemonDetail.swift */,
 				63E514312BD8429600B830C9 /* PokemonColor.swift */,
+				6336D27B2BDA2D9100F897F0 /* PokemonSpecies.swift */,
+				6336D27D2BDA2DA800F897F0 /* EvolutionChain.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -575,6 +581,7 @@
 				638957ED2BD62F4200A1D7F6 /* Page.swift in Sources */,
 				63CF12652BD8EDB6002DD46F /* DetailScreenView.swift in Sources */,
 				63461EB62BD24FED00C002E5 /* Persistence.swift in Sources */,
+				6336D27C2BDA2D9100F897F0 /* PokemonSpecies.swift in Sources */,
 				638D10632BD3024800E1A19B /* APIConfig.swift in Sources */,
 				63461EAF2BD24FEC00C002E5 /* ContentView.swift in Sources */,
 				63E5142B2BD76E4A00B830C9 /* DependencyContainer.swift in Sources */,
@@ -583,6 +590,7 @@
 				638958002BD64B1000A1D7F6 /* HomeScreenView+Components.swift in Sources */,
 				638D10692BD3039400E1A19B /* PokemonListResponse.swift in Sources */,
 				63E514242BD7469600B830C9 /* BaseViewModel.swift in Sources */,
+				6336D27E2BDA2DA800F897F0 /* EvolutionChain.swift in Sources */,
 				63461EAD2BD24FEC00C002E5 /* PokeAppApp.swift in Sources */,
 				63E514322BD8429600B830C9 /* PokemonColor.swift in Sources */,
 				6389583C2BD6586900A1D7F6 /* View+Modifiers.swift in Sources */,

@@ -10,6 +10,11 @@ import Foundation
 
 /// Protocol `NetworkServiceProtocol` defines the networking capabilities for fetching Pokemon data from a remote server.
 protocol NetworkServiceProtocol {
+    
+    func fetchEvolutionChain(from url: URL) -> AnyPublisher<EvolutionChain, Error>
+    
+    func fetchPokemonSpecies(name: String) -> AnyPublisher<PokemonSpecies, Error>
+    
     /// Fetches a list of Pokemon with pagination support.
     /// - Parameters:
     ///   - limit: The maximum number of Pokemon entries to return in one call.
