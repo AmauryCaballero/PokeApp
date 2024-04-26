@@ -13,8 +13,9 @@ final class DependencyContainer {
     
     let container: Container = {
         let container = Container()
+        container.register(CacheManagerServiceProtocol.self) { _ in CacheManager()}
         
-        container.register(NetworkServiceProtocol.self) { _ in NetworkService()}
+        container.register(NetworkServiceProtocol.self) { resolver in NetworkService(cache: resolver.resolve(CacheManagerServiceProtocol.self)!)}
         
         container.register(HomeScreenViewModel.self) { (resolver, _ : NavigationParameters?) in
             HomeScreenViewModel(networkService: resolver.resolve(NetworkServiceProtocol.self)!)
