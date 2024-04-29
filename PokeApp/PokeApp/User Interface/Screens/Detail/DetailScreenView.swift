@@ -7,6 +7,7 @@
 
 import SwiftUI
 struct DetailScreenView: View {
+    @Namespace private var tabNamespace
     @ObservedObject var viewModel: DetailScreenViewModel
     @EnvironmentObject var themeManager: ThemeManager
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
@@ -33,22 +34,25 @@ struct DetailScreenView: View {
                             
                             HStack {
                                 ForEach(tabs, id: \.self) { tab in
-                                    Button(action: {
-                                        self.selectedTab = tab
-                                    }) {
+                                    VStack {
+                                        
                                         Text(tab)
                                             .pokeFont(.button)
                                             .foregroundColor(self.selectedTab == tab ? themeManager.currentTheme.text : .gray)
                                             .frame(maxWidth: .infinity)
-                                            .background (
-                                                Capsule()
-                                                    .frame(height: 4)
-                                                    .padding(.horizontal, 10)
-                                                    .foregroundColor(self.selectedTab == tab ? themeManager.currentTheme.text : .clear)
-                                                    .offset(y: 12),
-                                                alignment: .bottomLeading
-                                                
-                                            )
+                                        
+                                        if selectedTab == tab {
+                                            Capsule()
+                                                .frame(height: 4)
+                                                .padding(.horizontal, 10)
+                                                .foregroundColor(themeManager.currentTheme.text)
+                                                .matchedGeometryEffect(id: "tab_capsule", in: tabNamespace)
+                                        }
+                                        
+                                    }.onTapGesture {
+                                        withAnimation {
+                                            self.selectedTab = tab
+                                        }
                                     }
                                 }
                             }

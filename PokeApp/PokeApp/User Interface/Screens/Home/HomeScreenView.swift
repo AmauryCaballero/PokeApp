@@ -19,6 +19,7 @@ struct HomeScreenView: View {
                 header
                 
                 searchBar
+                
                 if !viewModel.searchedPokemons.isEmpty {
                     infiniteScroll(viewModel.searchedPokemons)
                 } else {
@@ -36,10 +37,8 @@ struct HomeScreenView: View {
 struct HomeScreenView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            
             HomeScreenView(viewModel: HomeScreenViewModel.preview())
                 .previewDisplayName("Light Mode")
-            
             
             HomeScreenView(viewModel: HomeScreenViewModel.preview())
                 .environment(\.colorScheme, .dark)

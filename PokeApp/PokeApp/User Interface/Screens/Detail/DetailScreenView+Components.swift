@@ -129,6 +129,7 @@ extension DetailScreenView {
     func pokemonImage(_ pokemon: PokemonDetail) -> some View {
         WebImage(url: pokemon.sprites?.frontDefault)
             .resizable()
+            .indicator(.activity)
             .frame(width: UIScreen.main.bounds.width)
             .aspectRatio(1, contentMode: .fit)
     }

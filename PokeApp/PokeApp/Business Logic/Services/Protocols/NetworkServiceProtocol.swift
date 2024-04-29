@@ -15,7 +15,6 @@ protocol NetworkServiceProtocol {
     /// - Parameter url: The URL that points to the specific evolutionary chain resource.
     /// - Returns: An `AnyPublisher` that outputs `EvolutionChain` and errors out with `Error`.
     /// This method retrieves the complete evolutionary chain that includes all evolutionary stages of a Pokemon. This information is critical for understanding the different forms a Pokemon can take as it evolves.
-
     func fetchEvolutionChain(from url: URL) -> AnyPublisher<EvolutionChain, Error>
     
     /// Fetches detailed information about a specific Pokemon species by its name.

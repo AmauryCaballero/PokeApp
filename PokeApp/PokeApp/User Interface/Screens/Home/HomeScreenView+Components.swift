@@ -67,11 +67,14 @@ extension HomeScreenView {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: gridItems, spacing: 10) {
                 if !pokemons.isEmpty {
-                    
                     ForEach(pokemons, id: \.self) { pokemon in
                         let pokeColor = viewModel.pokemonColors[pokemon.name]
                         
-                        Button(action: {viewModel.selectPokemon(pokemon)}) {
+                        Button(action: {
+                            withAnimation {
+                                viewModel.selectPokemon(pokemon)
+                            }
+                        }) {
                             VStack {
                                 pokeLabel(pokemon)
                                     .padding(.top, 5)
@@ -79,7 +82,6 @@ extension HomeScreenView {
                                 Spacer()
                                 
                                 HStack {
-                                    
                                     if let types = viewModel.pokemonDetails[pokemon.name]?.types {
                                         typesList(types)
                                     }
@@ -142,6 +144,7 @@ extension HomeScreenView {
                 .pokeFont(.body)
                 .bold()
                 .multilineTextAlignment(.center)
+            
             Spacer()
             
             Text("#\(viewModel.pokemonDetails[pokemon.name]?.id ?? 0)")
@@ -161,6 +164,7 @@ extension HomeScreenView {
                         WebImage(url: url)
                             .resizable()
                             .indicator(.activity)
+                            .matchedGeometryEffect(id: pokemon.name, in: namespace)
                         
                     } else {
                         ProgressView()
