@@ -44,28 +44,11 @@ extension HomeScreenView {
     @ViewBuilder
     var background: some View {
         ZStack {
-            ZStack {
-                Circle()
-                    .fill(themeManager.currentTheme.accent)
-                    .frame(height: 300)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                    .offset(x: 20, y: 100)
-                
-                Circle()
-                    .fill(themeManager.currentTheme.secondary)
-                    .frame(height: 180)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                
-                Circle()
-                    .fill(themeManager.currentTheme.primary)
-                    .frame(height: 180)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
-                    .offset(y: 60)
-                
-            }
+            BouncingCirclesView(circles: [
+                BouncingCircle(color: themeManager.currentTheme.accent, diameter: 320, position: CGPoint(x: 150, y: 150), velocity: CGPoint(x: 2, y: 2)),
+                BouncingCircle(color: themeManager.currentTheme.secondary, diameter: 180, position: CGPoint(x: 150, y: 150), velocity: CGPoint(x: -2, y: 2)),
+                BouncingCircle(color: themeManager.currentTheme.primary, diameter: 180, position: CGPoint(x: 150, y: 150), velocity: CGPoint(x: 2, y: -2))
+            ])
             .ignoresSafeArea(.all)
             .blur(radius: 100)
             
@@ -84,11 +67,14 @@ extension HomeScreenView {
         ScrollView(showsIndicators: false) {
             LazyVGrid(columns: gridItems, spacing: 10) {
                 if !pokemons.isEmpty {
-                    
                     ForEach(pokemons, id: \.self) { pokemon in
                         let pokeColor = viewModel.pokemonColors[pokemon.name]
                         
-                        Button(action: {viewModel.selectPokemon(pokemon)}) {
+                        Button(action: {
+                            withAnimation {
+                                viewModel.selectPokemon(pokemon)
+                            }
+                        }) {
                             VStack {
                                 pokeLabel(pokemon)
                                     .padding(.top, 5)
@@ -96,7 +82,6 @@ extension HomeScreenView {
                                 Spacer()
                                 
                                 HStack {
-                                    
                                     if let types = viewModel.pokemonDetails[pokemon.name]?.types {
                                         typesList(types)
                                     }
@@ -159,6 +144,7 @@ extension HomeScreenView {
                 .pokeFont(.body)
                 .bold()
                 .multilineTextAlignment(.center)
+            
             Spacer()
             
             Text("#\(viewModel.pokemonDetails[pokemon.name]?.id ?? 0)")
@@ -178,6 +164,7 @@ extension HomeScreenView {
                         WebImage(url: url)
                             .resizable()
                             .indicator(.activity)
+                            .matchedGeometryEffect(id: pokemon.name, in: namespace)
                         
                     } else {
                         ProgressView()
@@ -188,3 +175,4 @@ extension HomeScreenView {
     }
     
 }
+

@@ -13,20 +13,12 @@ extension DetailScreenView {
     
     @ViewBuilder
     var backgroundColor: some View {
-        ZStack {
-            Circle()
-                .fill(viewModel.pokemonColor ?? themeManager.currentTheme.accent)
-                .frame(height: 300)
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomTrailing)
-                .offset(x: 20, y: 100)
+        
+        BouncingCirclesView(circles: [
             
-            Circle()
-                .fill(viewModel.pokemonColor ?? themeManager.currentTheme.secondary)
-                .frame(height: 180)
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        }
+            BouncingCircle(color: viewModel.pokemonColor ?? themeManager.currentTheme.accent, diameter: 320, position: CGPoint(x: 150, y: 150), velocity: CGPoint(x: 2, y: 2)),
+            BouncingCircle(color: viewModel.pokemonColor ?? themeManager.currentTheme.accent, diameter: 180, position: CGPoint(x: 150, y: 150), velocity: CGPoint(x: -2, y: 2)),
+        ])
         .ignoresSafeArea(.all)
         .blur(radius: 100)
     }
@@ -137,6 +129,7 @@ extension DetailScreenView {
     func pokemonImage(_ pokemon: PokemonDetail) -> some View {
         WebImage(url: pokemon.sprites?.frontDefault)
             .resizable()
+            .indicator(.activity)
             .frame(width: UIScreen.main.bounds.width)
             .aspectRatio(1, contentMode: .fit)
     }
