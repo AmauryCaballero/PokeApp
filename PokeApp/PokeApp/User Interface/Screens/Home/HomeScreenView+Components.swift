@@ -44,28 +44,11 @@ extension HomeScreenView {
     @ViewBuilder
     var background: some View {
         ZStack {
-            ZStack {
-                Circle()
-                    .fill(themeManager.currentTheme.accent)
-                    .frame(height: 300)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-                    .offset(x: 20, y: 100)
-                
-                Circle()
-                    .fill(themeManager.currentTheme.secondary)
-                    .frame(height: 180)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                
-                Circle()
-                    .fill(themeManager.currentTheme.primary)
-                    .frame(height: 180)
-                    .padding()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
-                    .offset(y: 60)
-                
-            }
+            BouncingCirclesView(circles: [
+                BouncingCircle(color: themeManager.currentTheme.accent, diameter: 320, position: CGPoint(x: 150, y: 150), velocity: CGPoint(x: 2, y: 2)),
+                BouncingCircle(color: themeManager.currentTheme.secondary, diameter: 180, position: CGPoint(x: 150, y: 150), velocity: CGPoint(x: -2, y: 2)),
+                BouncingCircle(color: themeManager.currentTheme.primary, diameter: 180, position: CGPoint(x: 150, y: 150), velocity: CGPoint(x: 2, y: -2))
+            ])
             .ignoresSafeArea(.all)
             .blur(radius: 100)
             
@@ -188,3 +171,4 @@ extension HomeScreenView {
     }
     
 }
+
